@@ -10,3 +10,4 @@
 ### Import taxi_management.sql in mysql server and update your mysql credentials in utils.py of user,driver,admin sub-directory
 ### in the folder, find manage.py and run the command:  python3 manage.py runserver
 ### The website is up, open http://127.0.0.1:8000/ to open the application
+### Demo Link: https://www.youtube.com/watch?v=Z7t1OBZRd6c
