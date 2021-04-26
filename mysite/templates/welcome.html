@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+<h1> welcome page</h2>
+
+{% block body %}
+<div class="container mt-5">
+	<h4 class="card-title mt-3 text-center">Welcome to Kgp-Taxi-Booking!</h4>
+	<div class="card bg-light">
+	<article class="card-body mx-auto" style="max-width: 400px;">
+		<h4 class="card-title mt-3 text-center">Login to Enter</h4>
+
+		<div class="form-group">
+			<button  onclick="window.location.href='/user/login/'" class="btn btn-outline-success btn-block" id="login" name="login"> User Login </button>		
+            <button  onclick="window.location.href='/driver/login/'" class="btn btn-outline-success btn-block" id="driver_login" name="driver_login"> Driver Login </button>		
+            <button  onclick="window.location.href='/admin/login/'" class="btn btn-outline-success btn-block" id="admin_login" name="admin_login"> Admin Login </button>		
+		</div> <!-- form-group// -->
+	</article>
+	</div>
+</div>
+{% endblock %}

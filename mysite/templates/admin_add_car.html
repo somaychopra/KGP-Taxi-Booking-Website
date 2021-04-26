@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+<h1> add cars page</h2>
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/admin/add_car.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+	<h4 class="card-title mt-3 text-center">Kgp-Taxi-Booking</h4>
+	<div class="card bg-light">
+	<article class="card-body mx-auto" style="max-width: 400px;">
+		<h4 class="card-title mt-3 text-center">Add Cabs</h4>
+
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-cab"></i> </span>
+			 </div>
+			<input name="" class="form-control number" placeholder="Cab Number">
+		</div> <!-- form-group// -->
+
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-cab"></i> </span>
+			</div>
+			<input class="form-control number_seats" placeholder="Number of Seats" type="number">
+		</div>
+        <div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-cab"></i> </span>
+			</div>
+			<input class="form-control model" placeholder="Cab Model">
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-outline-success btn-block" id="add" name="add"> Add  </button>
+			<button  onclick="window.location.href='/admin/home/'" class="btn btn-outline-success btn-block" id="back" name="back"> Back </button>		
+        </div> <!-- form-group// -->
+	</article>
+	</div>
+</div>
+{% endblock %}

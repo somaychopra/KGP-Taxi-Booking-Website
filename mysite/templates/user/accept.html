@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+<h1> Accept page</h2>
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/user/accept_confirm.js' %}"></script>
+{% endblock %}
+{% csrf_token %}
+{% block body %}
+<div class="container mt-5">
+	<h4 class="card-title mt-3 text-center">Hey dude!, we found a car for you !!</h4>
+	<div class="card bg-light">
+	<article class="card-body mx-auto" style="max-width: 400px;">
+		<h4 class="card-title mt-3 text-center">Here are the details :-</h4>
+		<h4 class="card-title mt-3 text-center"> Driver name : {{driver.name}} </h4>
+		<h4 class="card-title mt-3 text-center"> Driver phone number : {{driver.phone_number}}</h4>
+		<h4 class="card-title mt-3 text-center"> Car model : {{car.model}}</h4>
+		<h4 class="card-title mt-3 text-center"> Car number  : {{car.number}} </h4>
+		<h4 class="card-title mt-3 text-center"> Distance from your location : {{distance}} </h4>
+		<h4 class="card-title mt-3 text-center"> Do you want to go ahead ? </h4>
+		<div class="form-group">
+			<button type="submit" class="btn btn-outline-success btn-block" id="login_submit" name="login_submit"> Confirm </button>
+			{% comment %} <button  onclick="window.location.href='/user/home/waiting/'" class="btn btn-outline-success btn-block" id="confirm" name="confirm"> Confirm </button>		 {% endcomment %}
+			<button  onclick="window.location.href='/user/home/'" class="btn btn-outline-success btn-block" id="cancel" name="cancel"> Cancel </button>		
+        </div> <!-- form-group// -->
+	</article>
+	</div>
+</div>
+{% endblock %}

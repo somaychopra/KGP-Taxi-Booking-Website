@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+<h1> add cars page</h2>
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/admin/allocate.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+	<h4 class="card-title mt-3 text-center">Kgp-Taxi-Booking</h4>
+	<div class="card bg-light">
+	<article class="card-body mx-auto" style="max-width: 400px;">
+		<h4 class="card-title mt-3 text-center">Allocate cabs to the drivers</h4>
+
+		<div class="form-group input-group">
+			<label for="driver_email"> Driver: </label>
+			<select class="form-control driver_email" id="driver_email" name="driver_email">
+				{% for loc in driver_list %}
+					<option value={{loc}}> {{loc}} </option>
+				{% endfor %}
+			</select>
+		</div>
+
+        <div class="form-group input-group">
+			<label for="car_number"> Cab: </label>
+			<select class="form-control car_number" id="car_number" name="car_number">
+				{% for loc in car_list %}
+					<option value={{loc}}> {{loc}} </option>
+				{% endfor %}
+			</select>
+		</div>
+
+        <div class="form-group">
+			<button type="submit" class="btn btn-outline-success btn-block" id="add" name="add"> Add  </button>
+			<button  onclick="window.location.href='/admin/home/'" class="btn btn-outline-success btn-block" id="back" name="back"> Back </button>		
+        </div> <!-- form-group// -->
+	</article>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+<h1> add cars page</h2>
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/admin/add_location.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+	<h4 class="card-title mt-3 text-center">Kgp-Taxi-Booking</h4>
+	<div class="card bg-light">
+	<article class="card-body mx-auto" style="max-width: 400px;">
+		<h4 class="card-title mt-3 text-center">Add Locations</h4>
+
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+			 </div>
+			<input name="" class="form-control location_id" placeholder="Location Id">
+		</div> <!-- form-group// -->
+
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+			</div>
+			<input class="form-control location_name" placeholder="Location Name">
+		</div>
+        <div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-map-marker"></i> </span>
+			</div>
+			<input class="form-control is_outstation" placeholder="Is it an outstation(0 for NO/1 for YES)" type="number">
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-outline-success btn-block" id="add" name="add"> Add  </button>
+			<button  onclick="window.location.href='/admin/home/'" class="btn btn-outline-success btn-block" id="back" name="back"> Back </button>		
+        </div> <!-- form-group// -->
+	</article>
+	</div>
+</div>
+{% endblock %}

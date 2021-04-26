@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+<h1> add cars page</h2>
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/admin/add_route1.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+	<h4 class="card-title mt-3 text-center">Kgp-Taxi-Booking</h4>
+	<div class="card bg-light">
+	<article class="card-body mx-auto" style="max-width: 400px;">
+		<h4 class="card-title mt-3 text-center">Add Routes</h4>
+
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-map"></i> </span>
+			 </div>
+			<input name="" class="form-control route_id" placeholder="Route Id">
+		</div> <!-- form-group// -->
+
+		<div class="form-group input-group">
+			<label for="loc_start"> Start Location: </label>
+			<select class="form-control loc_start" id="loc_start" name="loc_start">
+				{% for loc in loc_list %}
+					<option value="{{loc}}"> {{loc}} </option>
+				{% endfor %}
+			</select>
+		</div>
+        <div class="form-group input-group">
+			<label for="loc_end"> End Location: </label>
+			<select class="form-control loc_end" id="loc_end" name="loc_end">
+				{% for loc in loc_list %}
+					<option value="{{loc}}"> {{loc}} </option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-map"></i> </span>
+			</div>
+			<input class="form-control distance" placeholder="Distance b/w Locations" type="number">
+		</div>
+		
+        <div class="form-group">
+			<button type="submit" class="btn btn-outline-success btn-block" id="add1" name="add1"> Add  </button>
+			{% comment %} <button type="submit" class="btn btn-outline-success btn-block" id="login_submit" name="login_submit"> Login  </button> {% endcomment %}
+			<button  onclick="window.location.href='/admin/home/'" class="btn btn-outline-success btn-block" id="back" name="back"> Back </button>		
+        </div> <!-- form-group// -->
+	</article>
+	</div>
+</div>
+{% endblock %}

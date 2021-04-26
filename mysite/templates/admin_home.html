@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+<h1> welcome page</h2>
+
+{% block body %}
+<div class="container mt-5">
+	<h4 class="card-title mt-3 text-center">Admin Page</h4>
+	<div class="card bg-light">
+	<article class="card-body mx-auto" style="max-width: 400px;">
+		<h4 class="card-title mt-3 text-center">Select from the given privileged options...</h4>
+
+		<div class="form-group">
+			<button  onclick="window.location.href='/admin/add_car/'" class="btn btn-outline-success btn-block" id="add_car" name="add_car"> Add Cabs </button>		
+            <button  onclick="window.location.href='/admin/allocate/'" class="btn btn-outline-success btn-block" id="allocate" name="allocate"> Allocate Cabs to Drivers </button>		
+            <button  onclick="window.location.href='/admin/add_location/'" class="btn btn-outline-success btn-block" id="add_location" name="add_location"> Add Locations </button>		
+            <button  onclick="window.location.href='/admin/add_route/'" class="btn btn-outline-success btn-block" id="add_route" name="add_route"> Add Routes </button>		
+		</div> <!-- form-group// -->
+	</article>
+	</div>
+</div>
+{% endblock %}

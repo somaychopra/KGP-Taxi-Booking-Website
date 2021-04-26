@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+<h1> DRIVER Home</h2>
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/driver_home.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+	<h4 class="card-title mt-3 text-center">Kgp Taxi-Booking</h4>
+	<div class="card bg-light">
+	<article class="card-body mx-auto" style="max-width: 400px;">
+		<h4 class="card-title mt-3 text-center"> Driver Logged In</h4>
+        <h4 class="card-body input-group-text">Hello {{driver.name}}</h4>
+        <h4 class="card-body input-group-text">Your Currrent rating is {{driver.rating}}</h4>
+        <p></p>
+        {% if driver.curr_car_number == None %}
+            <h4 class="card-body mx-auto input-group-text">Please report to admin, he will allot you a car</h4>
+        {% endif %}
+        {% if driver.curr_car_number%}
+            <div>
+                <p>Your car details are</p>
+                <p>Car Number: {{driver.curr_car_number}}</p>
+                <p>Car Model: {{car.model}}</p>
+                <p> Your current location is: {{curr_loc.location_name}}</p>
+            </div>
+            <p></p>
+            <form>
+                <div class="form-group input-group">
+                    {% comment %} <input class="form-control from" placeholder={{car.current_loc}}> {% endcomment %}
+                    <label for="from"> From : </label>
+                    <select class="form-control location_id" id="location_id" name="location_id">
+                        {% for loc in location_list %}
+                            <option value={{loc.location_id}}> {{loc.location_name}} </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-outline-success btn-block" id="update_location" name="update_location"> Update Location  </button>
+
+            </form>
+            <br></br>
+            {% if booking %}
+                <h4 class="card-body mx-auto input-group-text">Please Wait, You have a booking:</h4>
+                {% if booking.is_started == True %}
+                    <p>Trip is ongoing The passenger details are: </p>
+                    <p>Name: {{user.name}}</p>
+                    <p>Phone Number: {{user.phone_number}}</p>
+                    <p>Starting Location: {{loc_start.location_name}}</p>
+                    <p>Destination Location: {{loc_end.location_name}}</p>
+                    <button type="submit" class="btn btn-outline-success btn-block" id="end_trip" name="end_trip"> End Trip  </button>
+                {% endif %}
+                {% if booking.is_started == False %}
+                    <p>You have booking with the following details. Kindly reach the passenger and start the trip </p>
+                    <p>Name: {{user.name}}</p>
+                    <p>Phone Number: {{user.phone_number}}</p>
+                    <p>Starting Location: {{loc_start.location_name}}</p>
+                    <p>Destination Location: {{loc_end.location_name}}</p>
+                    <button type="submit" class="btn btn-outline-success btn-block" id="start_trip" name="start_trip"> Start Trip  </button>
+                {% endif %}
+
+            {% endif %}
+            {% if booking == None %}
+                <h4 class="card-body mx-auto input-group-text">Sorry, No boooking</h4>
+            {% endif %}
+        {% endif %}
+
+		
+	</article>
+	</div>
+</div>
+{% endblock %}

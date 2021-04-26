@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+<h1> Review page</h2>
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static 'js/user/review.js' %}"></script>
+{% endblock %}
+{% csrf_token %}
+{% block body %}
+<div class="container mt-5">
+	<h4 class="card-title mt-3 text-center">Hope you enjoyed !!</h4>
+	<div class="card bg-light">
+	<article class="card-body mx-auto" style="max-width: 400px;">
+		<h4 class="card-title mt-3 text-center">Please drop us you valuable feedback, so that we can bring better services to you next time!</h4>
+
+		
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+			</div>
+			<input class="form-control rating" placeholder="Driver ratings (out of 5)" type="number">
+		</div>
+		<div class="form-group input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+			</div>
+			<input class="form-control feedback_text" placeholder="Your feedback (optional)">
+		</div>
+		
+        <div class="form-group">
+			<button type="submit" class="btn btn-outline-success btn-block" id="login_submit" name="login_submit"> Submit </button>
+			<button  onclick="window.location.href='/user/home/'" class="btn btn-outline-success btn-block" id="signup" name="signup"> Skip </button>		
+        </div> <!-- form-group// -->
+	</article>
+	</div>
+</div>
+{% endblock %}
